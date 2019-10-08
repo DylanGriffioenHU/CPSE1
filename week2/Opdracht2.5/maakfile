@@ -6,6 +6,12 @@ rm := rm -f
 
 build: generator.exe
 
+melody.cpp: generator.exe
+	./generator.exe
+
+clean_full:
+	$(rm) melody.cpp generator.exe generator.o note_player_native.o rtttl_player.o
+	
 clean: 
 	$(rm) generator.exe generator.o note_player_native.o rtttl_player.o
 

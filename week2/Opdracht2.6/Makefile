@@ -12,12 +12,12 @@
 
 HEADERS += note.hpp
 HEADERS += melody.hpp
-SOURCES += melody.cpp
+HEADERS += melody.cpp
 HEADERS += note_player.hpp
 HEADERS += fur_elise.hpp
 
-HEADERS += note_player_native.hpp
-SOURCES += note_player_native.cpp
+HEADERS += note_player_gpio.hpp
+SOURCES += note_player_gpio.cpp
 
 HEADERS += rtttl_player.hpp
 SOURCES += rtttl_player.cpp
@@ -27,5 +27,6 @@ SEARCH  :=
 
 # set REATIVE to the next higher directory 
 # and defer to the Makefile.due there
+include maakfile
 RELATIVE := $(RELATIVE)../
-include $(RELATIVE)Makefile.native
+include $(RELATIVE)Makefile.due

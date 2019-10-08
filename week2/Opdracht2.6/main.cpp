@@ -1,8 +1,8 @@
-#include "note_player_native.hpp"
-#include "melody.hpp"
+#include "hwlib.hpp"
+#include "note_player_gpio.hpp"
 #include "fur_elise.hpp"
 #include "rtttl_player.hpp"
-
+#include "melody.cpp"
 
 const char sos[]          = "SOS:d=4,o=5,b=60:a,p,a,p,a,p,2a.,p,2a.,p,2a.,p,a,p,a,p,a";
 const char let_it_be[]    = "Beatles Let It Be:d=4,o=5,b=100:16e6,8d6,c6,16e6,8g6,8a6,8g.6,16g6,8g6,8e6,16d6,8c6,16a,8g,e.6,p,8e6,16e6,8f.6,8e6,8e6,8d6,16p,16e6,16d6,8d6,2c.6";
@@ -12,25 +12,26 @@ const char one[]          = "NumberOne:d=16,o=5,b=168:4f.,8c6,16b5,16c6,16b5,16c
 
 int main( void ){	
    
-   auto p = note_player_native();
+   namespace target = hwlib::target;   
+   auto lsp = target::pin_out( target::pins::d7 );
+   auto p = note_player_gpio( lsp );
+   hwlib::wait_ms( 10 );
+   
+   HWLIB_TRACE;
    
    if( 0 ){
       auto fe = fur_elise();
       fe.play( p );
-   }      
-   
+   } 
+
    if( 1 ){
-       p.start_file();
-       if( 0 ){ rtttl_play( p, sos ); }   
-       if( 0 ){ rtttl_play( p, let_it_be );  }
-       if( 0 ){ rtttl_play( p, muppets );  }
-       if( 0 ){ rtttl_play( p, rickroll );  }
-       if( 1 ){ rtttl_play( p, one );  }
-       p.end_file();
-   }
-//   
-//    if( 1 ){
-//      auto fe = melody();
-//      fe.play( l );
-//   }  
+      auto me = generated();
+      me.play( p );
+   }  
+   
+   if( 0 ){ rtttl_play( p, sos ); }   
+   if( 0 ){ rtttl_play( p, let_it_be );  }
+   if( 0 ){ rtttl_play( p, muppets );  }
+   if( 0 ){ rtttl_play( p, rickroll );  }
+   if( 0 ){ rtttl_play( p, one );  }
 }
