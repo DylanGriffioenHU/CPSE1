@@ -8,11 +8,13 @@
 # 
 #############################################################################
 
-# source files in this project (main.cpp is automatically assumed)
-SOURCES :=
+# source & header files in this project (main.cpp is automatically assumed)
 
-# header files in this project
-HEADERS :=
+HEADERS += print_clock.hpp
+SOURCES += print_clock.cpp
+
+HEADERS += current_time.hpp
+SOURCES += current_time.cpp
 
 # other places to look for files for this project
 SEARCH  := 
@@ -21,3 +23,4 @@ SEARCH  :=
 # and defer to the Makefile.due there
 RELATIVE := $(RELATIVE)../
 include $(RELATIVE)Makefile.due
+
