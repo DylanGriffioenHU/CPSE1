@@ -10,17 +10,18 @@ private:
    std::array< T, N > values = {};
 
 public: 
+	//fills the array with the results from the given function
+	template< typename F >
+	constexpr lookup( F function ){
+	  for( int i = 0; i < N; ++i ){
+		  values[ i ] = function( 10 * i );
+	  }
+	}
 
-   template< typename F >
-   constexpr lookup( F function ){
-      for( int i = 0; i < N; ++i ){
-          values[ i ] = function( 10 * i );
-      }
-   }
-
-   constexpr T get( int n ) const {
-      return values[ n / 10 ];    
-   }
+	//returns value's from the array
+	constexpr T get( int n ) const {
+	  return values[ n / 10 ];    
+	}
 };
 
 #endif

@@ -47,10 +47,9 @@ decompressLoop:
 	BEQ mainLoop				//als het hele woord gedecompressed is ga door met mainloop
 	b decompressLoop			//ga verder met het woord decompressen
 	
-	
 rotate:
 	PUSH {LR}
-	MOV R1, #39					//zet de buffer lenget in R1
+	MOV R1, #39					//zet de buffer lengte in R1
 rotateLoop:
 	SUB R1, R1, #1 				//zet R1 op de vorige index door er 1 vanaf te halen
 	ADD R2, R3, R1 				//stop het geheugenadress van R3 met index R1 in R2
@@ -66,7 +65,6 @@ rotateLoop:
 rotateDone:
 	STRB R0, [R3, #0]			//plaats huidige char op index 0
 	POP {PC}	
-	
 	
 done:
 	POP {R4, R5, R6, R7, PC} 	//pop alles weer van de stack
