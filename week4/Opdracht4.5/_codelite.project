@@ -32,9 +32,8 @@
     <File Name="main.cpp"/>
     <File Name="generator.cpp"/>
     <File Name="Makefile"/>
-    <File Name="decompressor.asm"/>
-    <File Name="wilhelmus.txt"/>
     <File Name="asmCompressed.asm"/>
+    <File Name="decompressor.asm"/>
   </VirtualDirectory>
   <Settings Type="Dynamic Library">
     <GlobalSettings>

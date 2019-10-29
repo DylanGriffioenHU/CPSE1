@@ -1,3 +1,6 @@
+//written by Dylan Griffioen
+//Assembly code that decompresses the compressed text located in asmCompressed en prints that to the terminal
+
 .cpu cortex-m0 
 .bss
 	buffer: .fill 0x28
@@ -53,9 +56,9 @@ rotate:
 rotateLoop:
 	SUB R1, R1, #1 				//zet R1 op de vorige index door er 1 vanaf te halen
 	ADD R2, R3, R1 				//stop het geheugenadress van R3 met index R1 in R2
-	LDRB R2, [R2] 				//Haal de waarde van het geheungenadress op en s
+	LDRB R2, [R2] 				//Haal de waarde van het geheungenadress op en zet dat in R2
 	ADD R1, R1, #1				//tel 1 op bij R1
-	STRB R2, [R3, R1]			//store het character van R3 met index R1 in R2
+	STRB R2, [R3, R1]			//store het character op buffer[R1]
 	SUB R1, R1, #1				//trek 1 van R1 af voor de volgende loop
 
 	CMP R1, #0					//compare R1 met 0

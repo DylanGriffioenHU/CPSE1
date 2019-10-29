@@ -1,3 +1,8 @@
+//written by Dylan Griffioen
+//contains a compressor and decompressor
+//compresses both to a txt and asm file
+
+
 #include <iostream>
 #include <fstream>
 
@@ -21,18 +26,23 @@ int main( void ){
 		return -1;      
 	}
    
+	/*
+	writes the compressed text to a usable asm file
+	*/
   	std::ofstream f3;
 	f3.open( "asmCompressed.asm" );
-	f3 << ".cpu cortex-m0 \n";
-	f3 << ".align 2 \n";
-	f3 << ".text \n";
-	f3 << ".global compressed \n \n";
-	f3 << "compressed: .asciz \"";
+
 	if( ! f3.is_open()){
 		std::cerr << "output file not opened 2\n";
 		return -1;      
 	}
 
+	f3 << ".cpu cortex-m0 \n";
+	f3 << ".align 2 \n";
+	f3 << ".text \n";
+	f3 << ".global compressed \n \n";
+	f3 << "compressed: .asciz \"";
+	
 	compressor.compress( 
 		[ &f1 ]()-> int { auto c = f1.get(); return f1.eof() ? '\0' : c; },
 		[ &f2, &f3 ]( char c ){ f2.put( c ); f3.put(c);}

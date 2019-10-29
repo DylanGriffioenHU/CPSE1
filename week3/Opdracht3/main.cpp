@@ -1,3 +1,8 @@
+//written by dylan griffioen
+//creates a clock using constexpr arrays with sine and cosine values
+//keeps the time by using a current time class that updates itself based on hwlib::now_us()
+
+
 #include <array>
 #include "hwlib.hpp"
 #include <math.h>

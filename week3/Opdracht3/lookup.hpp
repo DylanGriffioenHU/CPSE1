@@ -1,3 +1,6 @@
+//written by Dylan Griffioen
+//contains a class used to store a constexpr array
+
 #ifndef _LOOKUP_HPP
 #define _LOOKUP_HPP
 

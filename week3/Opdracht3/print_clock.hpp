@@ -1,9 +1,15 @@
+//written by Dylan Griffioen
+//contains a class used to draw a clock based upon a sine and cosine array
+
+
 #ifndef _PRINT_CLOCK_HPP
 #define _PRINT_CLOCK_HPP
 
 
-//class used to print the clock
-//it also calculates the angles for the hour hand, minute hand and second hand
+/*
+class used to print the clock
+it also calculates the angles for the hour hand, minute hand and second hand
+*/
 class print_clock {
 private:
 	int       	seconds_angle = 360;
@@ -17,11 +23,12 @@ public:
 	
 	void update_angles(const int & seconds, const int & minutes, const int & hours);
 	
-	
-	//prints the actual clock
-	//the circle is drawn by getting the x and y coordinates from the sinusses and cosinusses arrays with increments of 30
-	//the lines are drawn in a simular way but it uses the middle point of the circle(clock_xy) for one end
-	//and gets it's xy data for the other end from the sinusses and cosinusses arrays by using the corresponding angle
+	/*
+	prints the actual clock
+	the circle is drawn by getting the x and y coordinates from the sinusses and cosinusses arrays with increments of 30
+	the lines are drawn in a simular way but it uses the middle point of the circle(clock_xy) for one end
+	and gets it's xy data for the other end from the sinusses and cosinusses arrays by using the corresponding angle
+	*/
 	void print(auto & display, const auto & sinusses, const auto & cosinusses){
 		display.clear();
 		for( int j = 0; j <= 360; j += 30 ){

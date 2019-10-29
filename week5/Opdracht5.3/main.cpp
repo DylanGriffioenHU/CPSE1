@@ -1,55 +1,65 @@
-#include "verzameling.hpp"
+//written by Dylan Griffioen
+//contains tests for Opdracht5.3
+
+
+#include "set.hpp"
 
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include <catch2/catch.hpp>
-//Written by Ramon Petri 
 
 /*
-Test the max value in a int array
-This test first fills the array with values
-After it test if the setMax function
-returns the maximum value in the array
-wich is 10000
+Test the max value function in an int array
+First it fills the array with a bunch of ints
+Then it tests if the max function actually returns the max value
+Which in this case is 10000
+It also prints the array and the max value so you can check it for yourself
 */
 TEST_CASE( "check max from int array" ){
-	verzameling<int,12> vI;
+	set<int,12> vI;
 	vI.add(33);
 	vI.add(10000);
 	vI.add(129);
 	vI.add(689);
 	vI.add(700);
-	REQUIRE( vI.setMax() == 10000);   
+	std::cout << vI<< std::endl;
+	std::cout << vI.max()<< std::endl;
+	REQUIRE( vI.max() == 10000);   
 }
 
 /*
-Test the max value in a float array
-This test first fills the array with values
-After it test if the setMax function
-returns the maximum value in the array
-wich is 669.0
+Test the max value function in an float array
+First it fills the array with a bunch of floats
+Then it tests if the max function actually returns the max value
+Which in this case is 669.0
+It also prints the array and the max value so you can check it for yourself
 */
 TEST_CASE("check max from float array"){
-	verzameling<float,5> vF;
+	set<float,5> vF;
 	vF.add(2.2);
-	vF.add(669.0);
+	vF.add(669.5);
 	vF.add(33.3);
 	vF.add(88.22);
 	vF.add(9.00);
 	vF.add(55.6); //overflow array to test if add() shields against out of bounds
-	REQUIRE(vF.setMax() == 669.0);
+	std::cout << vF<< std::endl;
+	std::cout << vF.max()<< std::endl;
+	REQUIRE(vF.max() == 669.5);
 }
 
 /*
-Test the max value in a char array
-This test first fill the array with values
-After it test if the setMax function
-returns the maximum value in the array
+Test the max value function in an char array
+First it fills the array with a bunch of chars
+Then it tests if the max function actually returns the max value
+Which in this case is z
+It also prints the array and the max value so you can check it for yourself
 */
 TEST_CASE("check max from char array"){
-	verzameling<char,3> vC;
+	set<char,3> vC;
 	vC.add('a');
 	vC.add('G');
 	vC.add('z');
-	REQUIRE(vC.setMax() == 'z');
+	std::cout << vC<< std::endl;
+	std::cout << vC.max()<< std::endl;
+	REQUIRE(vC.max() == 'z');
 }
 

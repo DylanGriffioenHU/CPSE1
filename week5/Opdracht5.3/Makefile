@@ -10,7 +10,7 @@
 
 # source & header files in this project (main.cpp is automatically assumed)
 
-HEADERS += verzameling.hpp
+HEADERS += set.hpp
 SOURCES += 
 
 # other places to look for files for this project

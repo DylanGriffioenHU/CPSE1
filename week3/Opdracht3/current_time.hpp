@@ -1,8 +1,14 @@
+//written by Dylan griffioen
+//contains a class used to keep the current time by using hwlib::now_us()
+
+
 #ifndef _CURRENT_TIME_HPP
 #define _CURRENT_TIME_HPP
 
-//class used to calculate and keep track of the current_time the clock should be at
-//It calculates the time using now_us which returns how much time has passed in us since the function was first called
+/*
+class used to calculate and keep track of the current_time the clock should be at
+It calculates the time using now_us which returns how much time has passed in us since the function was first called
+*/
 class current_time{
 private:
 	int  seconds = 0;

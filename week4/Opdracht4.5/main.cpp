@@ -1,3 +1,7 @@
+//written by Dylan Griffioen
+//executes the asm decompressor
+
+
 #include "hwlib.hpp"
 
 extern "C" {
