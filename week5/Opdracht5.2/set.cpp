@@ -1,5 +1,5 @@
 //Written by Dylan Griffioen
-//contains functions for an array template that can add values, remove values and check if the value already exists in the array
+//contains functions for an array class that can add values, remove values and check if the value already exists in the array
 //
 //#include "set.hpp"
 //
@@ -33,13 +33,13 @@
 //*/
 //void set::remove( int n ){
 //	int w = 0;
-//	for( int i = 0; i <= used; ++i ){
+//	for( int i = 0; i < used; ++i ){
 //		data[ w ] = data[ i ];
 //		if( data[ w ] != n ){
 //			++w;
 //		}
 //	}
-//	used = --w;
+//	used = w;
 //}
 //
 //

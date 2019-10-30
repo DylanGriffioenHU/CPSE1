@@ -4,7 +4,7 @@
 .global compressed 
  
 compressed: .asciz "Wilhelmus van Nassouwe 
- Ben ick@F5Duytsch@A3Bloedt,@O3D@O3Vaderland ghetrouwe@I3Blijf ick tot inden doet;@K3E@;3Prince van Orangi@O3
+ Ben ick@F5Duytsch@A3Bloedt,@O3D@O3Vaderland getrouwe@H3Blijf ick tot inden doet;@K3E@;3Prince van Orangi@O3
  B@U3ick vry onverveert.@I3D@O3Conin@M4an Hispangi@F3
  Heb i@H3altijt gheeert.
 

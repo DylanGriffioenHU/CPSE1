@@ -33,7 +33,7 @@
 //*/
 //void set::remove( int n ){
 //	int w = 0;
-//	for( int i = 0; i <= used; ++i ){
+//	for( int i = 0; i < used; ++i ){
 //		data[ w ] = data[ i ];
 //		if( data[ w ] != n ){
 //			++w;

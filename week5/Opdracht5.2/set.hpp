@@ -20,11 +20,7 @@ public:
 	and then if there is space left and it's not already in the array it sets the new value on index validItems+1
 	*/
 	void add(T n){
-		if(used != size){
-			if(!contains(n)){
-				data[used++] = n;
-			}
-		}
+		if(used != size && !contains(n)){data[used++] = n;}
 	}
 
 	/*
@@ -43,13 +39,13 @@ public:
 	*/
 	void remove(T n){
 		int w = 0;
-		for( int i = 0; i <= used; ++i ){
+		for( int i = 0; i < used; ++i ){
 			data[ w ] = data[ i ];
 			if( data[ w ] != n ){
 				++w;
 			}
 		}
-		used = --w;
+		used = w;
 	}
 
 	/*

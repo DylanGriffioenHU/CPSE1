@@ -49,13 +49,35 @@ TEST_CASE( "Tests removing int from int array" ){
 	REQUIRE( vI2.contains(700) == true);   
 }
 
+/*
+Tests if add protects against overloading and duplicates
+It wil fill the array with ints but only 1, 2, 3 and 4 should actually be added
+The second 3 is a duplicate so it should not get added
+The 5 should not get added since the array is already full
+*/
+TEST_CASE( "Tests if add protects against overloading and duplicates" ){
+	set<int,4> vI3;
+	vI3.add(1);
+	vI3.add(2);
+	vI3.add(3);
+	vI3.add(3);
+	vI3.add(4);
+	vI3.remove(5);
+	std::cout << vI3<< std::endl;
+	REQUIRE( vI3.contains(1) == true);   
+	REQUIRE( vI3.contains(2) == true);   
+	REQUIRE( vI3.contains(3) == true);   
+	REQUIRE( vI3.contains(4) == true);   
+	REQUIRE( vI3.contains(5) == false);   
+}
+
 
 /*
-Tests adding floats to an float array
+Tests adding floats to a float array
 It will add a bunch of floats to the array and then checks if they are actually added
 It also prints the array so you can see for yourself if everything is the way it should be
 */
-TEST_CASE("c"){
+TEST_CASE("Tests adding floats to a float array"){
 	set<float,5> vF;
 	vF.add(2.2);
 	vF.add(669.0);
@@ -73,11 +95,11 @@ TEST_CASE("c"){
 }
 
 /*
-Tests adding chars to an chars array
+Tests adding chars to a chars array
 It will add a bunch of chars to the array and then checks if they are actually added
 It also prints the array so you can see for yourself if everything is the way it should be
 */
-TEST_CASE("check max from char array"){
+TEST_CASE("Tests adding chars to a chars array"){
 	set<char,3> vC;
 	vC.add('a');
 	vC.add('G');

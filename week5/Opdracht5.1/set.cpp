@@ -10,11 +10,7 @@ then it checks how many valid items are in the array to see if there is space le
 and then if there is space left and it's not already in the array it sets the new value on index validItems+1
 */
 void set::add( int n ){
-	if(used < 10){
-		if(!contains(n)){
-			data[used++] = n;
-		}
-	}
+	if(used != 10 && !contains(n)){data[used++] = n;}
 }
 
 /*
@@ -33,13 +29,13 @@ and now it has removed value 3 from the array by overwriting it with value 4
 */
 void set::remove( int n ){
 	int w = 0;
-	for( int i = 0; i <= used; ++i ){
+	for( int i = 0; i < used; ++i ){
 		data[ w ] = data[ i ];
 		if( data[ w ] != n ){
 			++w;
 		}
 	}
-	used = --w;
+	used = w;
 }
 
 
